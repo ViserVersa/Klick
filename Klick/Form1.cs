@@ -23,39 +23,58 @@ namespace Klick
         int Posx;
         int Posy;
         int PosxNext;
+        int Loop;
        
 
         public Form1()
         {
             InitializeComponent(); 
         }
-
+        
        
         private void btn_Update_Click(object sender, EventArgs e)
         {
             Posx = int.Parse(txt_X.Text);
             Posy = int.Parse(txt_Y.Text);
-            PosxNext = int.Parse(txt_X_Next.Text);
+            PosxNext = int.Parse(txt_LOOP.Text);
 
-            ClickOnLocation(Posx, Posy);
+            Loop = int.Parse(txt_LOOP.Text);
+
+            Loops();
+
+            
               
         }
-        private void ClickOnLocation(int Posx, int Posy)
+        private void Loops ()
         {
-            SetCursorPos(Posx, Posy);
+            
+            while (true)
+            {
+                System.Threading.Thread.Sleep(350);
+                SetCursorPos(Posx, Posy);
+                System.Threading.Thread.Sleep(350);
+                mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
+                System.Threading.Thread.Sleep(350);
+                mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+                System.Threading.Thread.Sleep(250);
+                lbl_Update.Text = "Updated " + Posx + "  <X Y>  " + Posy;
+                System.Threading.Thread.Sleep(250);
+                Loop--;
+                System.Threading.Thread.Sleep(250);
+                Posx = (Posx + 35);
 
-            mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
-            System.Threading.Thread.Sleep(50);
-            mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+                System.Threading.Thread.Sleep(350);
 
-            lbl_Update.Text = "Updated" + Posx + "  <X Y>  " + Posy;
+                if (Loop == 0)
+                    break;
+            }
+
+      
 
         }
 
-        private void txt_X_TextChanged(object sender, EventArgs e)
-        {
 
-        }
+
 
     }
     

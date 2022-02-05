@@ -34,7 +34,7 @@
             this.txt_Y = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txt_X_Next = new System.Windows.Forms.TextBox();
+            this.txt_LOOP = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btn_Update
@@ -57,16 +57,15 @@
             // 
             // txt_X
             // 
-            this.txt_X.Location = new System.Drawing.Point(577, 342);
+            this.txt_X.Location = new System.Drawing.Point(347, 231);
             this.txt_X.Name = "txt_X";
             this.txt_X.Size = new System.Drawing.Size(75, 20);
             this.txt_X.TabIndex = 3;
-            this.txt_X.Text = "-500";
-            this.txt_X.TextChanged += new System.EventHandler(this.txt_X_TextChanged);
+            this.txt_X.Text = "300";
             // 
             // txt_Y
             // 
-            this.txt_Y.Location = new System.Drawing.Point(577, 314);
+            this.txt_Y.Location = new System.Drawing.Point(347, 203);
             this.txt_Y.Name = "txt_Y";
             this.txt_Y.Size = new System.Drawing.Size(75, 20);
             this.txt_Y.TabIndex = 4;
@@ -75,7 +74,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(557, 317);
+            this.label1.Location = new System.Drawing.Point(327, 206);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(14, 13);
             this.label1.TabIndex = 6;
@@ -84,34 +83,36 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(557, 344);
+            this.label2.Location = new System.Drawing.Point(327, 233);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(14, 13);
             this.label2.TabIndex = 7;
             this.label2.Text = "X";
             // 
-            // txt_X_Next
+            // txt_LOOP
             // 
-            this.txt_X_Next.Location = new System.Drawing.Point(659, 341);
-            this.txt_X_Next.Name = "txt_X_Next";
-            this.txt_X_Next.Size = new System.Drawing.Size(74, 20);
-            this.txt_X_Next.TabIndex = 8;
-            this.txt_X_Next.Text = "-500";
+            this.txt_LOOP.Location = new System.Drawing.Point(429, 230);
+            this.txt_LOOP.Name = "txt_LOOP";
+            this.txt_LOOP.Size = new System.Drawing.Size(74, 20);
+            this.txt_LOOP.TabIndex = 8;
+            this.txt_LOOP.Text = "5";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.txt_X_Next);
+            this.Controls.Add(this.txt_LOOP);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txt_Y);
             this.Controls.Add(this.txt_X);
             this.Controls.Add(this.lbl_Update);
             this.Controls.Add(this.btn_Update);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Klick";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -125,7 +126,7 @@
         private System.Windows.Forms.TextBox txt_Y;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txt_X_Next;
+        private System.Windows.Forms.TextBox txt_LOOP;
     }
 }
 
