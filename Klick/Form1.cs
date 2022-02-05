@@ -22,13 +22,16 @@ namespace Klick
 
         int Posx;
         int Posy;
-        int PosxNext;
         int Loop;
-       
+
+
+
 
         public Form1()
         {
-            InitializeComponent(); 
+            InitializeComponent();
+            
+
         }
         
        
@@ -36,7 +39,6 @@ namespace Klick
         {
             Posx = int.Parse(txt_X.Text);
             Posy = int.Parse(txt_Y.Text);
-            PosxNext = int.Parse(txt_LOOP.Text);
 
             Loop = int.Parse(txt_LOOP.Text);
 
@@ -51,13 +53,12 @@ namespace Klick
             while (true)
             {
                 System.Threading.Thread.Sleep(350);
-                SetCursorPos(Posx, Posy);
-                System.Threading.Thread.Sleep(350);
-                mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
-                System.Threading.Thread.Sleep(350);
-                mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
-                System.Threading.Thread.Sleep(250);
+                SetCur();
+                
                 lbl_Update.Text = "Updated " + Posx + "  <X Y>  " + Posy;
+                txt_X.Text = Posx.ToString(); 
+                txt_Y.Text = Posy.ToString();
+                
                 System.Threading.Thread.Sleep(250);
                 Loop--;
                 System.Threading.Thread.Sleep(250);
@@ -69,13 +70,21 @@ namespace Klick
                     break;
             }
 
-      
+        }
+        private void SetCur()
+        {
+            SetCursorPos(Posx, Posy);
+
+            System.Threading.Thread.Sleep(350);
+            mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
+            System.Threading.Thread.Sleep(350);
+            mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+            System.Threading.Thread.Sleep(250);
+
 
         }
 
-
-
-
+        
     }
     
 }

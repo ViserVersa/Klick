@@ -61,7 +61,6 @@
             this.txt_X.Name = "txt_X";
             this.txt_X.Size = new System.Drawing.Size(75, 20);
             this.txt_X.TabIndex = 3;
-            this.txt_X.Text = "300";
             // 
             // txt_Y
             // 
@@ -69,7 +68,6 @@
             this.txt_Y.Name = "txt_Y";
             this.txt_Y.Size = new System.Drawing.Size(75, 20);
             this.txt_Y.TabIndex = 4;
-            this.txt_Y.Text = "300";
             // 
             // label1
             // 
