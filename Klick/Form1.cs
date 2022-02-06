@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;   // User.dll and import
 
 namespace Klick
 {
-    public partial class Form1 : Form
+    public partial class Klick : Form
     {
         public const UInt32 MOUSEEVENTF_LEFTDOWN = 0x0002;
         public const UInt32 MOUSEEVENTF_LEFTUP = 0x0004;
@@ -20,14 +20,13 @@ namespace Klick
         [DllImport("user32.dll")]
         private static extern bool SetCursorPos(int Posx, int Posy);
 
-        int Posx;
-        int Posy;
-        int Loop;
+        int Posx,Posy,Loop,Movex,Movey;
+      
 
 
 
 
-        public Form1()
+        public Klick()
         {
             InitializeComponent();
             
@@ -39,33 +38,32 @@ namespace Klick
         {
             Posx = int.Parse(txt_X.Text);
             Posy = int.Parse(txt_Y.Text);
-
             Loop = int.Parse(txt_LOOP.Text);
+            Movex = int.Parse(txt_Xmove.Text);
+            Movey = int.Parse(txt_Ymove.Text);
 
             Loops();
 
-            
-              
         }
+
+
+
+
+
+
         private void Loops ()
         {
             
             while (true)
-            {
-                System.Threading.Thread.Sleep(350);
+            { 
                 SetCur();
-                
-                lbl_Update.Text = "Updated " + Posx + "  <X Y>  " + Posy;
-                txt_X.Text = Posx.ToString(); 
-                txt_Y.Text = Posy.ToString();
-                
-                System.Threading.Thread.Sleep(250);
                 Loop--;
-                System.Threading.Thread.Sleep(250);
-                Posx = (Posx + 35);
+                Posx += Movex;
+                Posy += Movey;
+                txt_X_OLD.Text = Posx.ToString();
+                txt_Y_OLD.Text = Posy.ToString();
 
-                System.Threading.Thread.Sleep(350);
-
+                
                 if (Loop == 0)
                     break;
             }
@@ -75,11 +73,11 @@ namespace Klick
         {
             SetCursorPos(Posx, Posy);
 
-            System.Threading.Thread.Sleep(350);
+            System.Threading.Thread.Sleep(1100);
             mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
-            System.Threading.Thread.Sleep(350);
+            System.Threading.Thread.Sleep(20);
             mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
-            System.Threading.Thread.Sleep(250);
+            System.Threading.Thread.Sleep(1100);
 
 
         }
