@@ -181,7 +181,7 @@
             this.txt_SearchLoop.TabIndex = 10;
             this.txt_SearchLoop.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txt_SearchLoop.Value = new decimal(new int[] {
-            10,
+            3,
             0,
             0,
             0});

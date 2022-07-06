@@ -26,7 +26,21 @@ namespace Klick
 
         DataTable dt = new DataTable();
 
-        int Posx,Posy,Loop,Movex,Movey;
+        int Posx,Posy,Loop,Movex,Movey,SleepTime;
+
+
+        public Klick()
+        {
+            InitializeComponent();
+        }
+        private void Klick_Load(object sender, EventArgs e)
+        {
+
+            dt.Columns.Add("xCord"); 
+            dt.Columns.Add("yCord");
+            dtDataGridView.DataSource = dt;
+        }
+
 
         private void btn_Search_Click(object sender, EventArgs e)
         {
@@ -47,34 +61,50 @@ namespace Klick
                 dt.Rows.Add(dr);
 
             }
-        }
-
-        private void Klick_Load(object sender, EventArgs e)
-        {
-
-            dt.Columns.Add("xCord"); 
-            dt.Columns.Add("yCord");
-            dtDataGridView.DataSource = dt;
-        }
-
+        } // searching for x&y cords and adding collums
         private void btn_Square_Click(object sender, EventArgs e)
         {
             GetText();
+            int Move = 20;
 
-        }
+            for (int i = 1; i <= int.Parse(txt_SearchLoop.Text); i++)
+            {
 
-        public Klick()
-        {
-            InitializeComponent();
-        }
-        
-       
-        private void btn_Update_Click(object sender, EventArgs e)
+                Posx += Move;
+                Posy += Move;
+                SetCur();
+                Posx -= Move;
+                Posy -= Move;
+                Posx -= Move;
+                Posy -= Move;
+                SetCur();
+                Posx += Move;
+                Posx += Move;
+                SetCur();
+                Posx -= Move;
+                Posy += Move;
+                Posx -= Move;
+                Posy += Move;
+                SetCur();
+                
+            }
+        } // making a square
+        private void btn_Update_Click(object sender, EventArgs e) // basic move
         {
             GetText();
             Loops();
 
-        }
+        } 
+
+
+        private void GetText ()
+        {
+            Posx = int.Parse(txt_X.Text);
+            Posy = int.Parse(txt_Y.Text);
+            Loop = int.Parse(txt_LOOP.Text);
+            Movex = int.Parse(txt_Xmove.Text);
+            Movey = int.Parse(txt_Ymove.Text);
+        } // get info from from
         private void Loops ()
         {
             while (true)
@@ -90,25 +120,23 @@ namespace Klick
                 if (Loop == 0)
                     break;
             }
-        }
+        } // basic move
         private void SetCur()
         {
+            int SleepTime = 1000;
+            
+            
+            Console.WriteLine(Posx);
+            Console.WriteLine(Posy);
+
+
             SetCursorPos(Posx, Posy);
 
-            System.Threading.Thread.Sleep(1100);
+            System.Threading.Thread.Sleep(SleepTime);
             mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
             System.Threading.Thread.Sleep(20);
             mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
-            System.Threading.Thread.Sleep(1100);
-        }   
-
-        private void GetText ()
-        {
-            Posx = int.Parse(txt_X.Text);
-            Posy = int.Parse(txt_Y.Text);
-            Loop = int.Parse(txt_LOOP.Text);
-            Movex = int.Parse(txt_Xmove.Text);
-            Movey = int.Parse(txt_Ymove.Text);
-        }
-    } 
+            System.Threading.Thread.Sleep(SleepTime);
+        }    // click event
+    }  
 }
