@@ -23,8 +23,7 @@ namespace Klick
         
         public const UInt32 MOUSEEVENTF_LEFTDOWN = 0x0002;
         public const UInt32 MOUSEEVENTF_LEFTUP = 0x0004;
-
-        DataTable dt = new DataTable();
+        readonly DataTable dt = new DataTable();
 
         int Posx,Posy,Loop,Movex,Movey,SleepTime;
 
@@ -35,14 +34,11 @@ namespace Klick
         }
         private void Klick_Load(object sender, EventArgs e)
         {
-
-            dt.Columns.Add("xCord"); 
+            dt.Columns.Add("xCord"); //making a colum
             dt.Columns.Add("yCord");
             dtDataGridView.DataSource = dt;
         }
-
-
-        private void btn_Search_Click(object sender, EventArgs e)
+        private void Btn_Search_Click(object sender, EventArgs e)
         {
             System.Threading.Thread.Sleep(1000);
 
@@ -59,10 +55,12 @@ namespace Klick
                 dr[0] = PosX;
                 dr[1] = PosY;
                 dt.Rows.Add(dr);
-
             }
         } // searching for x&y cords and adding collums
-        private void btn_Square_Click(object sender, EventArgs e)
+
+
+
+        private void Btn_Square_Click(object sender, EventArgs e)
         {
             GetText();
             int Move = 20;
@@ -89,14 +87,12 @@ namespace Klick
                 
             }
         } // making a square
-        private void btn_Update_Click(object sender, EventArgs e) // basic move
+        private void Btn_Update_Click(object sender, EventArgs e)
         {
             GetText();
             Loops();
 
-        } 
-
-
+        }   // basic move
         private void GetText ()
         {
             Posx = int.Parse(txt_X.Text);
@@ -104,7 +100,9 @@ namespace Klick
             Loop = int.Parse(txt_LOOP.Text);
             Movex = int.Parse(txt_Xmove.Text);
             Movey = int.Parse(txt_Ymove.Text);
-        } // get info from from
+            SleepTime = int.Parse(txt_SleepTime.Text);
+
+        }   // get info from form
         private void Loops ()
         {
             while (true)
@@ -120,14 +118,16 @@ namespace Klick
                 if (Loop == 0)
                     break;
             }
-        } // basic move
+        }       // basic move
         private void SetCur()
         {
-            int SleepTime = 1000;
+
             
             
             Console.WriteLine(Posx);
             Console.WriteLine(Posy);
+            Console.WriteLine(SleepTime);
+            Console.WriteLine("***");
 
 
             SetCursorPos(Posx, Posy);

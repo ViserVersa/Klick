@@ -43,6 +43,7 @@
             this.dtDataGridView = new System.Windows.Forms.DataGridView();
             this.txt_SearchLoop = new System.Windows.Forms.NumericUpDown();
             this.btn_Square = new System.Windows.Forms.Button();
+            this.txt_SleepTime = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.txt_LOOP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_SearchLoop)).BeginInit();
@@ -56,7 +57,7 @@
             this.btn_Update.TabIndex = 0;
             this.btn_Update.Text = "Update";
             this.btn_Update.UseVisualStyleBackColor = true;
-            this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click);
+            this.btn_Update.Click += new System.EventHandler(this.Btn_Update_Click);
             // 
             // lbl_Update
             // 
@@ -163,7 +164,7 @@
             this.btn_Search.TabIndex = 15;
             this.btn_Search.Text = "Search";
             this.btn_Search.UseVisualStyleBackColor = true;
-            this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
+            this.btn_Search.Click += new System.EventHandler(this.Btn_Search_Click);
             // 
             // dtDataGridView
             // 
@@ -194,13 +195,23 @@
             this.btn_Square.TabIndex = 17;
             this.btn_Square.Text = "Square";
             this.btn_Square.UseVisualStyleBackColor = true;
-            this.btn_Square.Click += new System.EventHandler(this.btn_Square_Click);
+            this.btn_Square.Click += new System.EventHandler(this.Btn_Square_Click);
+            // 
+            // txt_SleepTime
+            // 
+            this.txt_SleepTime.Location = new System.Drawing.Point(12, 114);
+            this.txt_SleepTime.Name = "txt_SleepTime";
+            this.txt_SleepTime.Size = new System.Drawing.Size(55, 20);
+            this.txt_SleepTime.TabIndex = 18;
+            this.txt_SleepTime.Text = "0";
+            this.txt_SleepTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Klick
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1178, 552);
+            this.Controls.Add(this.txt_SleepTime);
             this.Controls.Add(this.btn_Square);
             this.Controls.Add(this.dtDataGridView);
             this.Controls.Add(this.btn_Search);
@@ -246,6 +257,7 @@
         private System.Windows.Forms.DataGridView dtDataGridView;
         private System.Windows.Forms.NumericUpDown txt_SearchLoop;
         private System.Windows.Forms.Button btn_Square;
+        private System.Windows.Forms.TextBox txt_SleepTime;
     }
 }
 
